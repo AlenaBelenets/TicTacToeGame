@@ -10,6 +10,9 @@ import Foundation
 struct Gamers {
     var nameOfFirstPlayer = "First Player"
     var nameOfSecondPlayer = "Second Player"
+
+    var firstPlayerScore = 0
+    var secondPlayerScore = 0
 }
 
 struct Game {
