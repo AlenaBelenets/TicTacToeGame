@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fmq-db-eMu">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -11,7 +11,7 @@
         <!--Tic Tac Toe Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TicTacToeGameViewController" customModule="TicTacToeGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="TicTacToeGameViewController" customModule="TicTacToeGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -174,6 +174,7 @@
                             <constraint firstItem="GO4-gZ-C6y" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="zf1-MW-kia"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="8Nr-T5-C9i"/>
                     <connections>
                         <outlet property="a1Button" destination="H09-SZ-zqj" id="j4i-p1-BBG"/>
                         <outlet property="a2Button" destination="Hn9-AN-wOQ" id="g3T-O2-5S3"/>
@@ -190,6 +191,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28" y="4"/>
+        </scene>
+        <!--Add Names View Controller-->
+        <scene sceneID="DJv-sZ-AcL">
+            <objects>
+                <viewController id="fmq-db-eMu" customClass="AddNamesViewController" customModule="TicTacToeGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PQB-0c-VCD">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="190" translatesAutoresizingMaskIntoConstraints="NO" id="Obr-od-gTu">
+                                <rect key="frame" x="72.333333333333329" y="79" width="248.66666666666669" height="539"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please, add your names:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kH8-o8-iqC">
+                                        <rect key="frame" x="0.0" y="0.0" width="248.66666666666666" height="28.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="E2H-KP-WHG">
+                                        <rect key="frame" x="47.666666666666671" y="221.33333333333331" width="153" height="91"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First player" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Wd-0L-VxN">
+                                                <rect key="frame" x="0.0" y="0.0" width="153" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Second player" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Wl-F2-5ZY">
+                                                <rect key="frame" x="0.0" y="57" width="153" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qU-IM-VpW">
+                                        <rect key="frame" x="86.666666666666671" y="504.66666666666657" width="75.000000000000014" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Button"/>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="presentation" id="hZq-1h-i0w"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zLM-vT-7UN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Obr-od-gTu" firstAttribute="centerX" secondItem="PQB-0c-VCD" secondAttribute="centerX" id="TG3-Lx-UF8"/>
+                            <constraint firstItem="zLM-vT-7UN" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Obr-od-gTu" secondAttribute="bottom" constant="200" id="ah4-b3-cSt"/>
+                            <constraint firstItem="Obr-od-gTu" firstAttribute="top" secondItem="zLM-vT-7UN" secondAttribute="top" constant="20" id="pxC-gF-Vgy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="firstPlayerLabel" destination="0Wd-0L-VxN" id="RkE-er-fBU"/>
+                        <outlet property="secondPlayerLabel" destination="0Wl-F2-5ZY" id="YKg-tb-xw7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pom-L1-jt7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-764.12213740458014" y="8.4507042253521139"/>
         </scene>
     </scenes>
     <resources>
