@@ -155,8 +155,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41e-De-vSL">
-                                <rect key="frame" x="125.66666666666667" y="124" width="141.66666666666663" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Player" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41e-De-vSL">
+                                <rect key="frame" x="125.33333333333333" y="124" width="142.33333333333337" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -200,8 +200,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="190" translatesAutoresizingMaskIntoConstraints="NO" id="Obr-od-gTu">
-                                <rect key="frame" x="72.333333333333329" y="79" width="248.66666666666669" height="539"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Obr-od-gTu">
+                                <rect key="frame" x="72.333333333333329" y="79" width="248.66666666666669" height="28.666666666666671"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please, add your names:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kH8-o8-iqC">
                                         <rect key="frame" x="0.0" y="0.0" width="248.66666666666666" height="28.666666666666668"/>
@@ -209,43 +209,49 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="E2H-KP-WHG">
-                                        <rect key="frame" x="47.666666666666671" y="221.33333333333331" width="153" height="91"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First player" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Wd-0L-VxN">
-                                                <rect key="frame" x="0.0" y="0.0" width="153" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Second player" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Wl-F2-5ZY">
-                                                <rect key="frame" x="0.0" y="57" width="153" height="34"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qU-IM-VpW">
-                                        <rect key="frame" x="86.666666666666671" y="504.66666666666657" width="75.000000000000014" height="34.333333333333314"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="Button"/>
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" id="hZq-1h-i0w"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="E2H-KP-WHG">
+                                <rect key="frame" x="120" y="380.66666666666669" width="153" height="91"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First player" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Wd-0L-VxN">
+                                        <rect key="frame" x="0.0" y="0.0" width="153" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Second player" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Wl-F2-5ZY">
+                                        <rect key="frame" x="0.0" y="57" width="153" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qU-IM-VpW">
+                                <rect key="frame" x="164" y="686" width="65" height="34.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonWasTapped:" destination="fmq-db-eMu" eventType="touchUpInside" id="Uu6-kx-2jS"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="seque" id="gD1-44-3XK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zLM-vT-7UN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6qU-IM-VpW" firstAttribute="leading" secondItem="zLM-vT-7UN" secondAttribute="leading" constant="164" id="1GO-mN-l1y"/>
+                            <constraint firstItem="E2H-KP-WHG" firstAttribute="centerY" secondItem="PQB-0c-VCD" secondAttribute="centerY" id="Gvh-GS-RAr"/>
+                            <constraint firstItem="zLM-vT-7UN" firstAttribute="bottom" secondItem="6qU-IM-VpW" secondAttribute="bottom" constant="97.666666666666629" id="SoJ-9S-5fz"/>
                             <constraint firstItem="Obr-od-gTu" firstAttribute="centerX" secondItem="PQB-0c-VCD" secondAttribute="centerX" id="TG3-Lx-UF8"/>
-                            <constraint firstItem="zLM-vT-7UN" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Obr-od-gTu" secondAttribute="bottom" constant="200" id="ah4-b3-cSt"/>
+                            <constraint firstItem="E2H-KP-WHG" firstAttribute="centerX" secondItem="PQB-0c-VCD" secondAttribute="centerX" id="W3a-yz-8AM"/>
+                            <constraint firstItem="zLM-vT-7UN" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Obr-od-gTu" secondAttribute="bottom" priority="500" constant="100" id="ah4-b3-cSt"/>
+                            <constraint firstItem="6qU-IM-VpW" firstAttribute="centerX" secondItem="E2H-KP-WHG" secondAttribute="centerX" id="hlp-4r-hO2"/>
                             <constraint firstItem="Obr-od-gTu" firstAttribute="top" secondItem="zLM-vT-7UN" secondAttribute="top" constant="20" id="pxC-gF-Vgy"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="firstPlayerLabel" destination="0Wd-0L-VxN" id="RkE-er-fBU"/>
-                        <outlet property="secondPlayerLabel" destination="0Wl-F2-5ZY" id="YKg-tb-xw7"/>
+                        <outlet property="firstPlayerName" destination="0Wd-0L-VxN" id="RkE-er-fBU"/>
+                        <outlet property="secondPlayerName" destination="0Wl-F2-5ZY" id="YKg-tb-xw7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pom-L1-jt7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

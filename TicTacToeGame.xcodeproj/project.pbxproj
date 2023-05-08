@@ -60,17 +60,57 @@
 		92133D2B2A05099B0039AE31 /* TicTacToeGame */ = {
 			isa = PBXGroup;
 			children = (
-				92133D2C2A05099B0039AE31 /* AppDelegate.swift */,
-				92133D2E2A05099B0039AE31 /* SceneDelegate.swift */,
-				92133D402A0512AA0039AE31 /* Model.swift */,
-				92133D302A05099B0039AE31 /* TicTacToeGameViewController.swift */,
-				92133D322A05099B0039AE31 /* Main.storyboard */,
-				92133D352A05099E0039AE31 /* Assets.xcassets */,
-				92133D372A05099E0039AE31 /* LaunchScreen.storyboard */,
-				92133D3A2A05099E0039AE31 /* Info.plist */,
-				92133D422A066B350039AE31 /* AddNamesViewController.swift */,
+				92BBF3CE2A093729003367FF /* ViewControllers */,
+				92BBF3D32A093E5A003367FF /* Storyboards */,
+				92BBF3CF2A09373F003367FF /* Model */,
+				92133D442A069B360039AE31 /* App */,
+				92BBF3D12A09380A003367FF /* Resourses */,
 			);
 			path = TicTacToeGame;
+			sourceTree = "<group>";
+		};
+		92133D442A069B360039AE31 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				92133D2E2A05099B0039AE31 /* SceneDelegate.swift */,
+				92133D2C2A05099B0039AE31 /* AppDelegate.swift */,
+				92133D3A2A05099E0039AE31 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		92BBF3CE2A093729003367FF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				92133D302A05099B0039AE31 /* TicTacToeGameViewController.swift */,
+				92133D422A066B350039AE31 /* AddNamesViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		92BBF3CF2A09373F003367FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				92133D402A0512AA0039AE31 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		92BBF3D12A09380A003367FF /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				92133D352A05099E0039AE31 /* Assets.xcassets */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		92BBF3D32A093E5A003367FF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				92133D372A05099E0039AE31 /* LaunchScreen.storyboard */,
+				92133D322A05099B0039AE31 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,7 +337,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JJT989VNH4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TicTacToeGame/Info.plist;
+				INFOPLIST_FILE = TicTacToeGame/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -325,7 +365,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JJT989VNH4;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TicTacToeGame/Info.plist;
+				INFOPLIST_FILE = TicTacToeGame/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -7,19 +7,17 @@
 
 import UIKit
 
+//    MARK: - enum
 enum Turn {
     case Zero
     case Cross
 }
 
+//    MARK: - TicTacToeGameViewController
 class TicTacToeGameViewController: UIViewController {
 
-    var ticTacToe = Gamers()
-    let turn = Game()
-
-
+//    MARK: - IBOutlets
     @IBOutlet weak var gamesTurnLabel: UILabel!
-
     @IBOutlet weak var a1Button: UIButton!
     @IBOutlet weak var a2Button: UIButton!
     @IBOutlet weak var a3Button: UIButton!
@@ -30,28 +28,31 @@ class TicTacToeGameViewController: UIViewController {
     @IBOutlet weak var a8Button: UIButton!
     @IBOutlet weak var a9Button: UIButton!
 
-    var firstTurn = Turn.Cross
-    var currentTurn = Turn.Cross
-    var board = [UIButton]()
-   
+    //    MARK: - Properties
+    var gamers: Gamers!
 
+    private let turn = Game()
+    private var firstTurn = Turn.Cross
+    private var currentTurn = Turn.Cross
+    private var board = [UIButton]()
 
+    //    MARK: - View did load
     override func viewDidLoad() {
         super.viewDidLoad()
+        addFirstName()
         initBoard()
-
     }
 
-
+    //    MARK: - IBActions
     @IBAction func tapOnScreenAction(_ sender: UIButton) {
         addToGame(sender)
 
         if checkForVictory(turn.cross) {
-            ticTacToe.firstPlayerScore += 1
-            resultAlert(title: "Crosse win!")
+            gamers.firstPlayerScore += 1
+            resultAlert(title: "\(gamers.nameOfFirstPlayer) win!")
         } else if checkForVictory(turn.zero) {
-            ticTacToe.secondPlayerScore += 1
-            resultAlert(title: "Zero win!")
+            gamers.secondPlayerScore += 1
+            resultAlert(title: "\(gamers.nameOfSecondPlayer) win!")
         }
 
         if fullBoard() {
@@ -59,26 +60,30 @@ class TicTacToeGameViewController: UIViewController {
         }
     }
 
-
-    func addToGame(_ sender: UIButton) {
+    //    MARK: - Private methods
+   private func addToGame(_ sender: UIButton) {
         guard sender.title(for: .normal) == nil else { return }
 
         if currentTurn == Turn.Zero {
             sender.setTitle(turn.zero, for: .normal)
             currentTurn = Turn.Cross
-            gamesTurnLabel.text = ticTacToe.nameOfFirstPlayer
+            gamesTurnLabel.text = gamers.nameOfFirstPlayer
         }
         else if currentTurn == Turn.Cross {
             sender.setTitle(turn.cross, for: .normal)
             currentTurn = Turn.Zero
-            gamesTurnLabel.text = ticTacToe.nameOfSecondPlayer
+            gamesTurnLabel.text = gamers.nameOfSecondPlayer
         }
 
         sender.isEnabled = false
 
     }
 
-    func initBoard() {
+    private func addFirstName() {
+        gamesTurnLabel.text = gamers.nameOfFirstPlayer
+    }
+
+    private func initBoard() {
         board.append(a1Button)
         board.append(a2Button)
         board.append(a3Button)
@@ -90,19 +95,76 @@ class TicTacToeGameViewController: UIViewController {
         board.append(a9Button)
     }
 
-    func fullBoard() -> Bool {
+    private func fullBoard() -> Bool {
         for button in board {
             if button.title(for: .normal) == nil  {
                 return false
-
             }
         }
         return true
     }
 
-    func resultAlert(title: String) {
-        let message = "\nFirst player " + String(ticTacToe.firstPlayerScore) +
-        "\n \nSecond player " + String(ticTacToe.secondPlayerScore)
+
+    private func resetBoard() {
+        for button in board {
+            button.setTitle(nil, for: .normal)
+            button.isEnabled = true
+        }
+        if firstTurn == Turn.Zero {
+            firstTurn = Turn.Cross
+            gamesTurnLabel.text = gamers.nameOfFirstPlayer
+        }
+        else if firstTurn == Turn.Cross {
+            firstTurn = Turn.Zero
+            gamesTurnLabel.text = gamers.nameOfSecondPlayer
+        }
+        currentTurn = firstTurn
+
+    }
+
+    private func checkForVictory(_ s: String) -> Bool {
+        if finalSymbol(a1Button, s) && finalSymbol(a2Button, s) && finalSymbol(a3Button, s) {
+            return true
+        }
+        if finalSymbol(a4Button, s) && finalSymbol(a5Button, s) && finalSymbol(a6Button, s) {
+            return true
+        }
+        if finalSymbol(a7Button, s) && finalSymbol(a8Button, s) && finalSymbol(a9Button, s) {
+            return true
+        }
+
+        if finalSymbol(a1Button, s) && finalSymbol(a4Button, s) && finalSymbol(a7Button, s) {
+            return true
+        }
+        if finalSymbol(a2Button, s) && finalSymbol(a5Button, s) && finalSymbol(a8Button, s) {
+            return true
+        }
+        if finalSymbol(a3Button, s) && finalSymbol(a6Button, s) && finalSymbol(a9Button, s) {
+            return true
+        }
+
+        if finalSymbol(a1Button, s) && finalSymbol(a5Button, s) && finalSymbol(a9Button, s) {
+            return true
+        }
+        if finalSymbol(a3Button, s) && finalSymbol(a5Button, s) && finalSymbol(a7Button, s) {
+            return true
+        }
+
+        return false
+
+    }
+
+    private func finalSymbol(_ button: UIButton, _ symbol: String) -> Bool {
+        return button.title(for: .normal) == symbol
+    }
+
+}
+
+//    MARK: - UIAlertController
+extension TicTacToeGameViewController {
+    private func resultAlert(title: String) {
+        let message = "\nFirst player " + String(gamers.firstPlayerScore) +
+        "\n \nSecond player " + String(gamers.secondPlayerScore)
         let alert = UIAlertController(
             title: title,
             message: message,
@@ -116,58 +178,4 @@ class TicTacToeGameViewController: UIViewController {
         )
         self.present(alert, animated: true)
     }
-
-    func resetBoard() {
-        for button in board {
-            button.setTitle(nil, for: .normal)
-            button.isEnabled = true
-        }
-        if firstTurn == Turn.Zero {
-            firstTurn = Turn.Cross
-            gamesTurnLabel.text = ticTacToe.nameOfFirstPlayer
-        }
-        else if firstTurn == Turn.Cross {
-            firstTurn = Turn.Zero
-            gamesTurnLabel.text = ticTacToe.nameOfSecondPlayer
-        }
-        currentTurn = firstTurn
-
-    }
-    func checkForVictory(_ s: String) -> Bool {
-//        Horizontal victory
-        if finalSymbol(a1Button, s) && finalSymbol(a2Button, s) && finalSymbol(a3Button, s) {
-            return true
-        }
-        if finalSymbol(a4Button, s) && finalSymbol(a5Button, s) && finalSymbol(a6Button, s) {
-            return true
-        }
-        if finalSymbol(a7Button, s) && finalSymbol(a8Button, s) && finalSymbol(a9Button, s) {
-            return true
-        }
-//        Vertical victory
-        if finalSymbol(a1Button, s) && finalSymbol(a4Button, s) && finalSymbol(a7Button, s) {
-            return true
-        }
-        if finalSymbol(a2Button, s) && finalSymbol(a5Button, s) && finalSymbol(a8Button, s) {
-            return true
-        }
-        if finalSymbol(a3Button, s) && finalSymbol(a6Button, s) && finalSymbol(a9Button, s) {
-            return true
-        }
-//        Diagonal victory
-        if finalSymbol(a1Button, s) && finalSymbol(a5Button, s) && finalSymbol(a9Button, s) {
-            return true
-        }
-        if finalSymbol(a3Button, s) && finalSymbol(a5Button, s) && finalSymbol(a7Button, s) {
-            return true
-        }
-
-        return false
-
-    }
-    func finalSymbol(_ button: UIButton, _ symbol: String) -> Bool {
-        return button.title(for: .normal) == symbol
-    }
-
 }
-
